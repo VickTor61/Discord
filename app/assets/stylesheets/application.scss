@@ -1,0 +1,101 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+*/
+@import "bootstrap";
+
+
+.navbar-light {
+  background-color: #1406527a !important;
+}
+#logo {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  letter-spacing: -1px;
+  float: left;
+}
+
+#logo:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.jumbotron {
+  background-color: #e9ecef;
+  border-radius: .3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+.centre_index {
+  background-image: asset_url('blog.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  height: 25rem;
+}
+.jumbotron > h1 {
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  color: white;
+  }
+
+.btn-xlarge {
+  font-weight: bold;
+}
+.article {
+  padding-left: 30px;
+  min-width: 500px;
+}
+.article-title {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+footer {
+  border-top: 1px solid #eaeaea;
+  margin-top: 45px;
+  color: #777;
+  bottom: 0;
+  position: relative;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left
+}
+footer ul {
+  float: right;
+  list-style: none;
+}
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
+.bg-error {
+  background-color: rgba(245, 6, 6, 0.115);
+}
+
+.message_container {
+  text-align: center;
+}
+.flash_msg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
