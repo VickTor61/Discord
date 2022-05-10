@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :pages
   resources :articles
+  get 'signup', to: 'users#new'
+  resources :users
 
   root 'pages#index'
 
