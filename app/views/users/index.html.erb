@@ -1,0 +1,15 @@
+<h1 class="text-center">All Alpha Bloggers</h1>
+<div class="d-flex justify-content-center align-items-center flex-column">
+  <% @users.each do |user| %>
+  <div class="card bg-light w-75 mb-4 my-4">
+    <ul>
+      <div class="text-center list-unstyled mt-3">
+        <li><%= link_to gravatar_for(user), user_path(user) %></li>
+        <li><%= link_to user.username, user_path(user), class: 'text-decoration-none' %></li>
+        <li><small><%= pluralize(user.articles.count, 'article') if user.articles %></small></li>
+      </div>
+    </ul>
+  </div>
+  <% end %>
+</div>
+<%== pagy_bootstrap_nav(@pagy) %>

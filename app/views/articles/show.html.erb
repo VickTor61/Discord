@@ -2,7 +2,23 @@
   <h2 class="text-center">Title: <%= @article.title %></h2>
 
   <div class="well col-xs-8 col-xs-offset-2 card my-3 bg-light w-75" style="margin: 0 auto; min-width: 500px">
-    <h4 class="text-center my-2"><strong>Description:</strong></h4>
+    <% if @article.user %>
+      <div class="text-center mt-2">
+        <h4>Created by:</h4>
+        <ul>
+          <div class="text-center list-unstyled">
+            <li><%= link_to gravatar_for(@article.user), user_path(@article.user)%></li>
+            <li><%= link_to @article.user.username, user_path(@article.user), class: 'text-decoration-none' %></li>
+            <li><small>
+              <%= pluralize(@article.user.articles.count, 'article') if @article.user.articles %>
+            </small></li>
+
+          </div>
+        </ul>
+      </div>
+      <% end %>
+
+    <h4 class="text-center"><strong>Description:</strong></h4>
 
     <%= simple_format(@article.description) %>
     <div class="article-actions my-4 d-flex">
