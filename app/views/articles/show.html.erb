@@ -7,7 +7,7 @@
         <h4>Created by:</h4>
         <ul>
           <div class="text-center list-unstyled">
-            <li><%= link_to gravatar_for(@article.user), user_path(@article.user)%></li>
+            <li><%= link_to gravatar_for(@article.user), user_path(@article.user) %></li>
             <li><%= link_to @article.user.username, user_path(@article.user), class: 'text-decoration-none' %></li>
             <li><small>
               <%= pluralize(@article.user.articles.count, 'article') if @article.user.articles %>
@@ -16,18 +16,19 @@
           </div>
         </ul>
       </div>
-      <% end %>
+    <% end %>
 
     <h4 class="text-center"><strong>Description:</strong></h4>
 
     <%= simple_format(@article.description) %>
     <div class="article-actions my-4 d-flex">
-      <%= link_to 'Edit this article', edit_article_path(@article), class: 'btn btn-xs btn-primary' %>
-      <%= button_to 'Delete this article', article_path(@article), method: :delete,
-                    data: { confirm: 'Are you sure' },
-                    class: 'btn btn-xs btn-danger mx-2' %>
+      <% if logged_in? && current_user == @article.user %>
+        <%= link_to 'Edit this article', edit_article_path(@article), class: 'btn btn-xs btn-primary' %>
+        <%= button_to 'Delete this article', article_path(@article), method: :delete,
+                      data: { confirm: 'Are you sure' },
+                      class: 'btn btn-xs btn-danger mx-2' %>
+      <% end %>
       <%= link_to 'View all articles', articles_path, class: 'btn btn-xs btn-success' %>
-
     </div>
   </div>
 </div>
