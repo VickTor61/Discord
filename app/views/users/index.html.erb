@@ -12,6 +12,11 @@
           <li><%= link_to gravatar_for(user), user_path(user) %></li>
           <li><%= link_to user.username, user_path(user), class: 'text-decoration-none' %></li>
           <li><small><%= pluralize(user.articles.count, 'article') if user.articles %></small></li>
+          <li><%= button_to 'Delete User', user_path(user),
+                            class: 'btn btn-xs btn-danger mx-2',
+                            method: :delete if logged_in? && current_user.admin? %>
+          </li>
+
         </div>
       </ul>
     </div>
